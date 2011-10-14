@@ -1,19 +1,39 @@
 %p.customer
-  Dear Customer,
+  Dear
+  = @order.bill_address ? @order.bill_address.full_name : 'Customer' 
+  ,
 
 %p.instructions
   Please review and retain the following order information for your records.
 
+%p.link
+  To view the complete details of your order use the following link:
+  = link_to(order_url(@order, :host => Spree::Config[:site_url]), order_url(@order, :host => Spree::Config[:site_url]))
+
 %h1
   Order Summary
 
-%p
-  Number:
-  = link_to(@order.number, order_url(@order, :host => Spree::Config[:site_url]))
+%table.split
+  %tr
+    %th{:colspan => 2}
+      Order Details
+  %tr
+    %td Number
+    %td= @order.number
+  %tr.alt
+    %td Payment Method
+    %td= @order.payments.collect {|p| p.payment_method.name }.join(', ')
+  %tr
+    %td Submitted
+    %td= l(@order.completed_at, :format => :short)
 
-%p
-  Ordered:
-  = l(@order.completed_at, :format => :short)
+#addresses
+  .address#billing
+    %h2= t(:billing_address)
+    = render :partial => 'shared/email/address', :locals => {:address => @order.bill_address}
+  .address#shipping
+    %h2= t(:shipping_address)
+    = render :partial => 'shared/email/address', :locals => {:address => @order.ship_address}
 
 %table.index{"data-hook" => "order_details"}
   %tbody#line-items{"data-hook" => ""}
@@ -31,7 +51,7 @@
         %td.qty.number= item.quantity
         %td.total.number= number_to_currency(item.price * item.quantity)
   %tbody#subtotal{"data-hook" => "order_details_subtotal"}
-    %tr#subtotal-row.total
+    %tr#subtotal-row.total{:class => cycle('', 'alt')}
       %td.title{:colspan => "3"}
         = t(:subtotal)
       %td.total.number
@@ -39,13 +59,13 @@
   %tbody#order-charges{"data-hook" => "order_details_adjustments"}
     - @order.adjustments.eligible.each do |adjustment|
       - next if (adjustment.originator_type == "TaxRate") and (adjustment.amount == 0)
-      %tr.total
+      %tr.total{:class => cycle('', 'alt')}
         %td.title{:colspan => "3"}
           = adjustment.label
         %td.total.number
           = number_to_currency adjustment.amount
   %tbody#order-total{"data-hook" => "order_details_total"}
-    %tr.total
+    %tr.total{:class => cycle('', 'alt')}
       %td.title{:colspan => "3"}
         = t(:order_total)
       %td.total.number

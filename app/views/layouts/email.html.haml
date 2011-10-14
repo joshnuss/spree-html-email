@@ -44,9 +44,9 @@
 
         #wrapper
           margin: 0px auto 30px
-          width: 1024px
+          width: 600px
           background: white
-          padding: 40px
+          padding: 20px 40px 40px
           box-shadow: 4px 5px 4px #665
           border-radius: 0 0px 4px
           border-top: solid 1px #888
@@ -59,11 +59,11 @@
           border: solid 1px #ccc
           border-right-color: #aaa
           border-bottom-color: #aaa
-          box-shadow: 2px 2px 4px #ccc
+          width: 100%
 
           .number 
             text-align: right
-            min-width: 100px
+            min-width: 45px
 
           th
             background: #1155dd
@@ -72,21 +72,59 @@
             text-shadow: #222 1px 1px 0px
 
           tr.alt td
-            background: #ccc
+            background: #eee
 
           td
             border-bottom: 1px solid #DDD
-            padding: 9px 11px
+            padding: 6px 10px
             border-style: inset
 
             &.name 
-              min-width: 300px
+              min-width: 180px
 
             &.title, &.subtotal
               font-weight: bold
 
+        table.split
+          td
+            width: 50%
+
         #order_total
           font-weight: bold
+
+        #subtotal-row td, #order-total td
+          border-top: solid 1px #aaa
+
+        #addresses
+          width: 600px
+
+          .address
+            float: left
+            width: 292px
+            margin: 10px 0
+            border: solid 1px #ccc
+            border-right-color: #aaa
+            border-bottom-color: #aaa
+
+            &#billing
+              margin-right: 10px
+
+            h2
+              font-size: 16px
+              font-weight: normal
+              display: block
+              margin: 0
+              background: yellow
+              padding: 8px
+              background: #1155dd
+              color: white
+              text-shadow: #222 1px 1px 0px
+
+            .details
+              padding: 10px
+
+            .full-name
+              font-weight: bold
 
   %body
     #wrapper
