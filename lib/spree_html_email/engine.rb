@@ -1,3 +1,5 @@
+require 'haml'
+
 module SpreeHtmlEmail
   class Engine < Rails::Engine
     engine_name 'spree_html_email'
@@ -7,6 +9,12 @@ module SpreeHtmlEmail
     # use rspec for tests
     config.generators do |g|
       g.test_framework :rspec
+      g.template_engine :haml
+    end
+
+    config.before_initialize do
+      Haml.init_rails(binding)
+      Haml::Template.options[:format] = :html5
     end
 
     def self.activate

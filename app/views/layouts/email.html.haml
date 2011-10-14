@@ -1,0 +1,100 @@
+!!! html
+%html
+  %head
+    %style{:type => 'text/css'}
+      :sass
+        html, body, div, form, fieldset, legend, label
+          margin: 0
+          padding: 0
+
+        table
+          border-collapse: collapse
+          border-spacing: 0
+
+          th, td
+            text-align: left
+            vertical-align: top
+
+        h1, h2, h3, h4, h5, h6, th, td, caption 
+          font-weight: normal
+
+        img 
+          border: 0
+
+        body
+          background: #15D
+
+        footer, header, section
+          display: block
+
+        a 
+          color: #222 
+          font-weight: bold
+
+        h1, h2, h3, h4
+          font-weight: bold
+          color: #15D
+
+        h1 
+          font-size: 22px
+          margin: 10px 0
+
+        p
+          margin: 10px 0
+
+        #wrapper
+          margin: 0px auto 30px
+          width: 1024px
+          background: white
+          padding: 40px
+          box-shadow: 4px 5px 4px #665
+          border-radius: 0 0px 4px
+          border-top: solid 1px #888
+       
+        footer 
+          font-size: 11px
+
+        table
+          display: table 
+          border: solid 1px #ccc
+          border-right-color: #aaa
+          border-bottom-color: #aaa
+          box-shadow: 2px 2px 4px #ccc
+
+          .number 
+            text-align: right
+            min-width: 100px
+
+          th
+            background: #1155dd
+            color: white
+            padding: 7px 10px
+            text-shadow: #222 1px 1px 0px
+
+          tr.alt td
+            background: #ccc
+
+          td
+            border-bottom: 1px solid #DDD
+            padding: 9px 11px
+            border-style: inset
+
+            &.name 
+              min-width: 300px
+
+            &.title, &.subtotal
+              font-weight: bold
+
+        #order_total
+          font-weight: bold
+
+  %body
+    #wrapper
+      %header
+        = render :partial => 'shared/email/header'
+
+      %section#main
+        = yield
+
+      %footer
+        = render :partial => 'shared/email/footer'
