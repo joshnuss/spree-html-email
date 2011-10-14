@@ -6,10 +6,7 @@
     %br
     = address.address2
   %br
-  = address.city
-  ,
-  = address.state ? address.state.name : address.state_name
+  = [address.city, address.state ? address.state.name : address.state_name].join(', ')
   %br
   = address.country.name
-  ,
   = address.zipcode
