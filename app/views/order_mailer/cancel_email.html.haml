@@ -1,7 +1,7 @@
 %p.customer
   = t(:dear_customer, :default => "Dear %{name},", :name => @order.bill_address ? @order.bill_address.full_name : 'Customer' )
 
-%p.instructions
+%p.overview
   Your order has been <b>CANCELED</b>.  Please retain this cancellation information for your records.
 
 %p.link

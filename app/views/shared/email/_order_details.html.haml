@@ -26,7 +26,7 @@
     %h2= t(:shipping_address)
     = render :partial => 'shared/email/address', :locals => {:address => order.ship_address}
 
-%table.index{"data-hook" => "order_details"}
+%table{"data-hook" => "order_details"}
   %tbody#line-items{"data-hook" => ""}
     %tr{"data-hook" => "order_details_line_items_headers"}
       %th= t(:item_description)

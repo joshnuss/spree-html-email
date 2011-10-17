@@ -1,0 +1,18 @@
+.address#shipping
+  %h2= t(:shipping_address)
+  = render :partial => 'shared/email/address', :locals => {:address => shipment.address}
+
+%table{"data-hook" => "shipment_details"}
+  %tbody#line-items{"data-hook" => ""}
+    %tr{"data-hook" => "shipment_details_line_items_headers"}
+      %th= t(:item_description)
+      %th.qty.number= t(:qty)
+      %th= t(:status)
+    - shipment.line_items.each do |item|
+      %tr{"data-hook" => "shipment_details_line_item_row", :class => cycle('', 'alt')}
+        %td.name
+          = item.variant.product.name
+          = "(" + variant_options(item.variant) + ")" unless item.variant .option_values.empty?
+        %td.qty.number= item.quantity
+        %td= t('shipped')
+
