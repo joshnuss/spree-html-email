@@ -1,0 +1,110 @@
+$background-color: #15D 
+$border-color: #AAA
+$text-color: #222
+
+@import 'reset'
+
+body
+  font-family: sans-serif
+  background: $background-color 
+  color: $text-color
+
+a 
+  color: $text-color
+  font-weight: bold
+
+h1, h2, h3, h4
+  font-weight: bold
+  color: $background-color
+
+h1 
+  font-size: 22px
+  margin: 10px 0
+
+p
+  margin: 10px 0
+
+#wrapper
+  margin: 0px auto 30px
+  width: 600px
+  background: white
+  padding: 20px 40px 40px
+  box-shadow: 4px 5px 4px #665
+  border-radius: 0 0px 4px
+  border-top: solid 1px #888
+
+footer 
+  font-size: 11px
+
+table
+  display: table 
+  border: solid 1px #ccc
+  border-right-color: $border-color
+  border-bottom-color: $border-color
+  width: 100%
+
+  .number 
+    text-align: right
+    min-width: 45px
+
+  th
+    background: $background-color
+    color: white
+    padding: 7px 10px
+    text-shadow: #222 1px 1px 0px
+    font-weight: bold
+
+  tr.alt td
+    background: #eee
+
+  td
+    border-bottom: 1px solid #DDD
+    padding: 6px 10px
+    border-style: inset
+
+    &.name 
+      min-width: 180px
+
+    &.title, &.subtotal
+      font-weight: bold
+
+table.split
+  td
+    width: 50%
+
+#order_total
+  font-weight: bold
+
+#subtotal-row td, #order-total td
+  border-top: solid 1px $border-color
+
+#addresses
+  width: 600px
+
+  .address
+    width: 292px
+    margin: 10px 0
+    border: solid 1px #ccc
+    border-right-color: $border-color
+    border-bottom-color: $border-color
+
+    &#billing
+      float: left
+
+    &#shipping
+      float: right
+
+    h2
+      font-size: 16px
+      display: block
+      margin: 0
+      padding: 8px
+      background: $background-color
+      color: white
+      text-shadow: #222 1px 1px 0px
+
+    .details
+      padding: 10px
+
+    .full-name
+      font-weight: bold
