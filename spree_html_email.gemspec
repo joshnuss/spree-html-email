@@ -17,6 +17,7 @@ Gem::Specification.new do |s|
   s.requirements << 'none'
 
   s.add_dependency 'spree_core', '>= 0.70.0'
+  s.add_dependency 'spree_auth', '>= 0.70.0'
   s.add_dependency 'sass-rails', '>= 3.1.0'
   s.add_dependency 'haml-rails', '>= 0.3'
 
