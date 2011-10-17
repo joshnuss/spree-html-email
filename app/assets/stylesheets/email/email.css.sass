@@ -1,8 +1,10 @@
 $background-color: #15D 
 $border-color: #AAA
 $text-color: #222
-
-@import 'reset'
+$box-shadow-color: #665
+$table-border: 1px solid #ccc
+$table-row-alt-color: #eee
+$table-row-divider: 1px solid #DDD
 
 body
   font-family: sans-serif
@@ -29,16 +31,15 @@ p
   width: 600px
   background: white
   padding: 20px 40px 40px
-  box-shadow: 4px 5px 4px #665
+  box-shadow: 4px 5px 4px $box-shadow-color
   border-radius: 0 0px 4px
-  border-top: solid 1px #888
 
 footer 
   font-size: 11px
 
 table
   display: table 
-  border: solid 1px #ccc
+  border: $table-border
   border-right-color: $border-color
   border-bottom-color: $border-color
   width: 100%
@@ -51,14 +52,14 @@ table
     background: $background-color
     color: white
     padding: 7px 10px
-    text-shadow: #222 1px 1px 0px
+    text-shadow: $text-color 1px 1px 0px
     font-weight: bold
 
   tr.alt td
-    background: #eee
+    background: $table-row-alt-color 
 
   td
-    border-bottom: 1px solid #DDD
+    border-bottom: $table-row-divider
     padding: 6px 10px
     border-style: inset
 
@@ -84,7 +85,7 @@ table.split
   .address
     width: 292px
     margin: 10px 0
-    border: solid 1px #ccc
+    border: $table-border
     border-right-color: $border-color
     border-bottom-color: $border-color
 
@@ -101,7 +102,7 @@ table.split
       padding: 8px
       background: $background-color
       color: white
-      text-shadow: #222 1px 1px 0px
+      text-shadow: $text-color 1px 1px 0px
 
     .details
       padding: 10px
