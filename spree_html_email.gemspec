@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_html_email'
-  s.version     = '0.70.0'
+  s.version     = '0.70.1'
   s.summary     = 'HTML email support for Spree'
   s.description = "Provides html email templates for all Spree's outgoing emails"
   s.required_ruby_version = '>= 1.8.7'
