@@ -1,7 +1,8 @@
 !!! html
 %html
   %head
-    %link{:rel => 'stylesheet', :type => 'text/css', :media => 'screen', :href => "http://#{Spree::Config[:site_url] }#{asset_path('email/all.css')}"}
+    %style{:type => 'text/css'}
+      = render 'shared/email/stylesheet'
   %body
     #wrapper
       %header

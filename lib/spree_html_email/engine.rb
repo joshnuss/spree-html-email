@@ -6,10 +6,6 @@ module SpreeHtmlEmail
 
     config.autoload_paths += %W(#{config.root}/lib)
 
-    initializer "spree_html_email.add_asset_precompilation" do |app|
-      app.config.assets.precompile += ['email/all.*']
-    end
-
     # use rspec for tests
     config.generators do |g|
       g.test_framework :rspec
