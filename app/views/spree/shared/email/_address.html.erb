@@ -1,32 +1,14 @@
 <div class="details">
   <span class="full-name"><%= address.full_name %></span>
-  <br>
-  </br>
+  <br/>
   <%= address.address1 %>
   <% if address.address2.present? %>
-    <br>
-    </br>
+    <br/>
     <%= address.address2 %>
-  <br>
-  </br>
+  <% end %>
+  <br/>
   <%= [address.city, address.state ? address.state.name : address.state_name].join(', ') %>
-  <br>
-  </br>
-  <%= address.country.name %>
-  <%= address.zipcode.details  %span.full-name= address.full_name %>
-  <br>
-  </br>
-  <%= address.address1 %>
-  <% if address.address2.present? %>
-    <br>
-    </br>
-    <%= address.address2 %>
-  <br>
-  </br>
-  <%= [address.city, address.state ? address.state.name : address.state_name].join(', ') %>
-  <br>
-  </br>
+  <br/>
   <%= address.country.name %>
   <%= address.zipcode %>
 </div>
-​

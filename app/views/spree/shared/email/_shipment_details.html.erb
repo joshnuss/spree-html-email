@@ -1,18 +1,17 @@
- <div class="address" id="shipping">
+<div class="address" id="shipping">
   <h2><%= t(:shipping_address) %></h2>
-  <%= render :partial => 'spree/shared/email/address', :locals => {:address => shipment.address}.address#shipping  %h2= t(:shipping_address) %>
   <%= render :partial => 'spree/shared/email/address', :locals => {:address => shipment.address} %>
-​</div>
+</div>
 
-<table "data-hook" => "shipment_details">
+<table data-hook="shipment_details">
   <tbody id="line-items" "data-hook" => "">
-    <tr "data-hook" => "shipment_details_line_items_headers">
+    <tr data-hook="shipment_details_line_items_headers">
       <th><%= t(:item_description) %></th>
       <th class="qty number"><%= t(:qty) %></th>
       <th><%= t(:status) %></th>
     </tr>
     <% shipment.line_items.each do |item| %>
-      <tr "data-hook" => "shipment_details_line_item_row", :class => cycle('', 'alt')>
+      <tr data-hook="shipment_details_line_item_row" class="<%=cycle('', 'alt')%>">
         <td class="name">
           <%= item.variant.product.name %>
           <%= "(" + variant_options(item.variant) + ")" unless item.variant .option_values.empty? %>
@@ -20,24 +19,6 @@
         <td class="qty number"><%= item.quantity %></td>
         <td><%= t('shipped') %></td>
       </tr>
+    <% end %>
   </tbody>
 </table>
-<table "data-hook" => "shipment_details">
-  <tbody id="line-items" "data-hook" => "">
-    <tr "data-hook" => "shipment_details_line_items_headers">
-      <th><%= t(:item_description) %></th>
-      <th class="qty number"><%= t(:qty) %></th>
-      <th><%= t(:status) %></th>
-    </tr>
-    <% shipment.line_items.each do |item| %>
-      <tr "data-hook" => "shipment_details_line_item_row", :class => cycle('', 'alt')>
-        <td class="name">
-          <%= item.variant.product.name %>
-          <%= "(" + variant_options(item.variant) + ")" unless item.variant .option_values.empty? %>
-        </td>
-        <td class="qty number"><%= item.quantity %></td>
-        <td><%= t('shipped') %></td>
-      </tr>
-  </tbody>
-</table>
-​

@@ -1,22 +1,22 @@
-%p.customer
-  = t(:dear_customer, :default => "Dear %{name},", :name => @shipment.order.bill_address ? @shipment.order.bill_address.full_name : 'Customer' )
-
-%p.overview
+<p class="customer">
+  <%= t(:dear_customer, :default => "Dear %{name},", :name => @shipment.order.bill_address ? @shipment.order.bill_address.full_name : 'Customer' ) %>
+</p>
+<p class="overview">
   Your shipment has been shipped
-
-%p.link
+</p>
+<p class="link">
   To view the complete details of your order use the following link:
-  = link_to(order_url(@shipment.order, :host => Spree::Config[:site_url]), order_url(@shipment.order, :host => Spree::Config[:site_url]))
-
-%h1
+  <%= link_to(order_url(@shipment.order, :host => Spree::Config[:site_url]), order_url(@shipment.order, :host => Spree::Config[:site_url])) %>
+</p>
+<h1>
   Shipment Summary
-
-= render :partial => 'spree/shared/email/shipment_details', :locals => {:shipment => @shipment}
-
-- if @shipment.tracking.present?
-  %p.tracking
+</h1>
+<%= render :partial => 'spree/shared/email/shipment_details', :locals => {:shipment => @shipment} %>
+<% if @shipment.tracking.present? %>
+  <p class="tracking">
     Tracking Information:
-    = @shipment.tracking
-
-%p.thank-you
+    <%= @shipment.tracking %>
+  </p>
+<p class="thank-you">
   Thank you for your business.
+</p>

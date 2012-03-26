@@ -1,64 +1,92 @@
-%table.split
-  %tr
-    %th{:colspan => 2}
+<table class="split">
+  <tr>
+    <th colspan="2">
       Order Details
-  %tr
-    %td Number
-    %td= order.number
-  %tr.alt
-    %td Payment Method
-    %td= order.payments.collect {|p| p.payment_method.name }.join(', ')
-  
-  - if order.canceled?
-    %tr
-      %td Status
-      %td Canceled
-  - else
-    %tr
-      %td Submitted
-      %td= l(order.completed_at, :format => :short)
+    </th>
+  </tr>
+  <tr>
+    <td>Number</td>
+    <td><%= order.number %></td>
+  </tr>
+  <tr class="alt">
+    <td>Payment Method</td>
+    <td><%= order.payments.collect {|p| p.payment_method.name }.join(', ') %></td>
+  </tr>
+  <% if order.canceled? %>
+    <tr>
+      <td>Status</td>
+      <td>Canceled</td>
+    </tr>
+  <% else %>
+    <tr>
+      <td>Submitted</td>
+      <td><%= l(order.completed_at, :format => :short) %></td>
+    </tr>
+  <% end %>
+</table>
 
-#addresses
-  .address#billing
-    %h2= t(:billing_address)
-    = render :partial => 'spree/shared/email/address', :locals => {:address => order.bill_address}
-  .address#shipping
-    %h2= t(:shipping_address)
-    = render :partial => 'spree/shared/email/address', :locals => {:address => order.ship_address}
+<div id="addresses">
+  <div class="address" id="billing">
+    <h2><%= t(:billing_address) %></h2>
+    <%= render :partial => 'spree/shared/email/address', :locals => {:address => order.bill_address} %>
+  </div>
+  <div class="address" id="shipping">
+    <h2><%= t(:shipping_address) %></h2>
+    <%= render :partial => 'spree/shared/email/address', :locals => {:address => order.ship_address} %>
+  </div>
+</div>
 
-%table{"data-hook" => "order_details"}
-  %tbody#line-items{"data-hook" => ""}
-    %tr{"data-hook" => "order_details_line_items_headers"}
-      %th= t(:item_description)
-      %th.price.number= t(:price)
-      %th.qty.number= t(:qty)
-      %th.total.number= t(:total)
-    - order.line_items.each do |item|
-      %tr{"data-hook" => "order_details_line_item_row", :class => cycle('', 'alt')}
-        %td.name
-          = item.variant.product.name
-          = "(" + variant_options(item.variant) + ")" unless item.variant .option_values.empty?
-        %td.price.number= number_to_currency(item.price)
-        %td.qty.number= item.quantity
-        %td.total.number= number_to_currency(item.price * item.quantity)
-  %tbody#subtotal{"data-hook" => "order_details_subtotal"}
-    %tr#subtotal-row.total{:class => cycle('', 'alt')}
-      %td.title{:colspan => "3"}
-        = t(:subtotal)
-      %td.total.number
-        = number_to_currency order.item_total
-  %tbody#order-charges{"data-hook" => "order_details_adjustments"}
-    - order.adjustments.eligible.each do |adjustment|
-      - next if (adjustment.originator_type == "TaxRate") and (adjustment.amount == 0)
-      %tr.total{:class => cycle('', 'alt')}
-        %td.title{:colspan => "3"}
-          = adjustment.label
-        %td.total.number
-          = number_to_currency adjustment.amount
-  %tbody#order-total{"data-hook" => "order_details_total"}
-    %tr.total{:class => cycle('', 'alt')}
-      %td.title{:colspan => "3"}
-        = t(:order_total)
-      %td.total.number
-        %span#order_total= number_to_currency order.total
-
+<table data-hook="order_details">
+  <tbody id="line-items">
+    <tr data-hook="order_details_line_items_headers">
+      <th><%= t(:item_description) %></th>
+      <th class="price number"><%= t(:price) %></th>
+      <th class="qty number"><%= t(:qty) %></th>
+      <th class="total number"><%= t(:total) %></th>
+    </tr>
+    <% order.line_items.each do |item| %>
+      <tr data-hook="order_details_line_item_row" class="<%= cycle('', 'alt') %>">
+        <td class="name">
+          <%= item.variant.product.name %>
+          <%= "(" + variant_options(item.variant) + ")" unless item.variant .option_values.empty? %>
+        </td>
+        <td class="price number"><%= number_to_currency(item.price) %></td>
+        <td class="qty number"><%= item.quantity %></td>
+        <td class="total number"><%= number_to_currency(item.price * item.quantity) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tbody id="subtotal" data-hook="order_details_subtotal">
+    <tr id="subtotal-row" class="total <%= cycle('', 'alt') %>">
+      <td class="title" colspan="3">
+        <%= t(:subtotal) %>
+      </td>
+      <td class="total number">
+        <%= number_to_currency order.item_total %>
+      </td>
+    </tr>
+  </tbody>
+  <tbody id="order-charges" data-hook="order_details_adjustments">
+    <% order.adjustments.eligible.each do |adjustment| %>
+      <% next if (adjustment.originator_type == "TaxRate") and (adjustment.amount == 0) %>
+      <tr class="total" class="<%= cycle('', 'alt') %>">
+        <td class="title" colspan="3">
+          <%= adjustment.label %>
+        </td>
+        <td class="total number">
+          <%= number_to_currency adjustment.amount %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tbody id="order-total" data-hook="order_details_total">
+    <tr class="total" class="<%= cycle('', 'alt') %>">
+      <td class="title" colspan="3">
+        <%= t(:order_total) %>
+      </td>
+      <td class="total number">
+        <span id="order_total"><%= number_to_currency order.total %></span>
+      </td>
+    </tr>
+  </tbody>
+</table>

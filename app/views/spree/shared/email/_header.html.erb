@@ -1,2 +1,3 @@
-#logo
-  = link_to(image_tag("http://#{Spree::Config[:site_url]}#{ asset_path(Spree::Config[:logo]) }"), "http://#{ Spree::Config[:site_url] }")
+<div id="logo">
+  <%= link_to(image_tag("http://#{Spree::Config[:site_url]}#{ asset_path(Spree::Config[:logo]) }"), "http://#{ Spree::Config[:site_url] }") %>
+</div>
