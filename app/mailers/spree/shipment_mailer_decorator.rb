@@ -1,3 +1,3 @@
 Spree::ShipmentMailer.class_eval do
-  layout 'email'
+  layout 'spree/layouts/email'
 end
