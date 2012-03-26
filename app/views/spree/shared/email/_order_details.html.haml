@@ -21,10 +21,10 @@
 #addresses
   .address#billing
     %h2= t(:billing_address)
-    = render :partial => 'shared/email/address', :locals => {:address => order.bill_address}
+    = render :partial => 'spree/shared/email/address', :locals => {:address => order.bill_address}
   .address#shipping
     %h2= t(:shipping_address)
-    = render :partial => 'shared/email/address', :locals => {:address => order.ship_address}
+    = render :partial => 'spree/shared/email/address', :locals => {:address => order.ship_address}
 
 %table{"data-hook" => "order_details"}
   %tbody#line-items{"data-hook" => ""}

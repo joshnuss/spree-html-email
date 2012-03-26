@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'spree_core', '~> 1.0.0'
   s.add_dependency 'haml-rails', '>= 0.3'
-  s.add_dependency 'premailer-rails3', '~> 1.0.1'
+  s.add_dependency 'premailer-rails3', '~> 1.1.0'
 
   s.add_development_dependency 'rspec-rails'
 end

@@ -1,6 +1,6 @@
 .address#shipping
   %h2= t(:shipping_address)
-  = render :partial => 'shared/email/address', :locals => {:address => shipment.address}
+  = render :partial => 'spree/shared/email/address', :locals => {:address => shipment.address}
 
 %table{"data-hook" => "shipment_details"}
   %tbody#line-items{"data-hook" => ""}

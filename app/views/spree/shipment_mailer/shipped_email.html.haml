@@ -11,7 +11,7 @@
 %h1
   Shipment Summary
 
-= render :partial => 'shared/email/shipment_details', :locals => {:shipment => @shipment}
+= render :partial => 'spree/shared/email/shipment_details', :locals => {:shipment => @shipment}
 
 - if @shipment.tracking.present?
   %p.tracking

@@ -2,14 +2,14 @@
 %html
   %head
     %style{:type => 'text/css'}
-      = render 'shared/email/stylesheet'
+      = render 'spree/shared/email/stylesheet'
   %body
     #wrapper
       %header
-        = render :partial => 'shared/email/header'
+        = render :partial => 'spree/shared/email/header'
 
       %section#main
         = yield
 
       %footer
-        = render :partial => 'shared/email/footer'
+        = render :partial => 'spree/shared/email/footer'
