@@ -1,18 +1,43 @@
-.address#shipping
-  %h2= t(:shipping_address)
-  = render :partial => 'spree/shared/email/address', :locals => {:address => shipment.address}
+ <div class="address" id="shipping">
+  <h2><%= t(:shipping_address) %></h2>
+  <%= render :partial => 'spree/shared/email/address', :locals => {:address => shipment.address}.address#shipping  %h2= t(:shipping_address) %>
+  <%= render :partial => 'spree/shared/email/address', :locals => {:address => shipment.address} %>
+​</div>
 
-%table{"data-hook" => "shipment_details"}
-  %tbody#line-items{"data-hook" => ""}
-    %tr{"data-hook" => "shipment_details_line_items_headers"}
-      %th= t(:item_description)
-      %th.qty.number= t(:qty)
-      %th= t(:status)
-    - shipment.line_items.each do |item|
-      %tr{"data-hook" => "shipment_details_line_item_row", :class => cycle('', 'alt')}
-        %td.name
-          = item.variant.product.name
-          = "(" + variant_options(item.variant) + ")" unless item.variant .option_values.empty?
-        %td.qty.number= item.quantity
-        %td= t('shipped')
-
+<table "data-hook" => "shipment_details">
+  <tbody id="line-items" "data-hook" => "">
+    <tr "data-hook" => "shipment_details_line_items_headers">
+      <th><%= t(:item_description) %></th>
+      <th class="qty number"><%= t(:qty) %></th>
+      <th><%= t(:status) %></th>
+    </tr>
+    <% shipment.line_items.each do |item| %>
+      <tr "data-hook" => "shipment_details_line_item_row", :class => cycle('', 'alt')>
+        <td class="name">
+          <%= item.variant.product.name %>
+          <%= "(" + variant_options(item.variant) + ")" unless item.variant .option_values.empty? %>
+        </td>
+        <td class="qty number"><%= item.quantity %></td>
+        <td><%= t('shipped') %></td>
+      </tr>
+  </tbody>
+</table>
+<table "data-hook" => "shipment_details">
+  <tbody id="line-items" "data-hook" => "">
+    <tr "data-hook" => "shipment_details_line_items_headers">
+      <th><%= t(:item_description) %></th>
+      <th class="qty number"><%= t(:qty) %></th>
+      <th><%= t(:status) %></th>
+    </tr>
+    <% shipment.line_items.each do |item| %>
+      <tr "data-hook" => "shipment_details_line_item_row", :class => cycle('', 'alt')>
+        <td class="name">
+          <%= item.variant.product.name %>
+          <%= "(" + variant_options(item.variant) + ")" unless item.variant .option_values.empty? %>
+        </td>
+        <td class="qty number"><%= item.quantity %></td>
+        <td><%= t('shipped') %></td>
+      </tr>
+  </tbody>
+</table>
+​
