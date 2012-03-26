@@ -91,22 +91,21 @@
   </tbody>
 </table>
 
-<% if Rails.application.railties.all.map(&:railtie_name).include? 'spree_digital' %>
-<% digital_items = @order.line_items.select{ |i| i.digital? } %>
-<% unless digital_items.empty? %>
+<% if gem_available? 'spree_digital' and @order.some_digital? %>
 <div class="spacer_15">&nbsp;</div>
 <h2><span><%= t(:digital_download_links) %></span></h2>
-<p><%= t(:digital_email_description) %></p>
-
-<% digital_items.each do |item| %>
-<p><%= item.variant.name %>:<br/>
+<%== t(:digital_email_description) %>
 <%
-item.digital_links.each do |link|
-  digital_url = digital_url(:host => Spree::Config.get(:site_url), :secret => link.secret)
+@order.line_items.select { |i| i.digital? }.each do |digital_item|
+  digital_item.digital_links.each do |digital_link|
+    digital_url = digital_url(:host => Spree::Config.get(:site_url), :secret => digital_link.secret)
+    file_name = digital_link.digital.attachment.original_filename
+    format = File.extname(file_name).downcase
 %>
-<%= link_to digital_url, digital_url%>
+<p>
+  <%== t(:digital_item_email_title, :name => digital_item.variant.name, :type => t("digital_format#{format}"), :file_name => file_name) %>
+  <%= link_to digital_url, digital_url%>
 </p>
-<% end %>
 <% end %>
 <% end %>
 <% end %>
