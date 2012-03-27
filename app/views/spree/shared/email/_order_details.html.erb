@@ -31,12 +31,15 @@
       <%= render :partial => 'spree/shared/email/address', :locals => {:address => order.ship_address} %>
     </td>
   </tr>
-</div>
+</table>
+
+<div class="spacer_15">&nbsp;</div>
+<h2><span>Order Details</span></h2>
 
 <table id="order_details">
   <tbody id="line-items">
     <tr data-hook="order_details_line_items_headers">
-      <th><%= t(:item_description) %></th>
+      <th><%= t(:items_purchased) %></th>
       <th class="price number"><%= t(:price) %></th>
       <th class="qty number"><%= t(:qty) %></th>
       <th class="total number"><%= t(:total) %></th>
