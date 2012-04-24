@@ -1,4 +1,6 @@
 en:
+  digital_email_description: Each link will only work a SINGLE TIME! Also, they will only work WITHIN 24 HOURS!
+
   time:
     formats:
       short: "%B %d, %Y"

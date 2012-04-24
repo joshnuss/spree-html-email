@@ -92,18 +92,21 @@
 </table>
 
 <% if Rails.application.railties.all.map(&:railtie_name).include? 'spree_digital' %>
+<% digital_items = @order.line_items.select{ |i| i.digital? } %>
+<% unless digital_items.empty? %>
 <div class="spacer_15">&nbsp;</div>
 <h2><span><%= t(:digital_download_links) %></span></h2>
-<p>Each link will only work a SINGLE TIME! Also, they will only work WITHIN 24 HOURS!</p>
+<p><%= t(:digital_email_description) %></p>
 
-<% @order.line_items.select{ |i| i.digital? }.each do |item| %>
+<% digital_items.each do |item| %>
 <p><%= item.variant.name %>:<br/>
 <%
-for link in item.digital_links
+item.digital_links.each do |link|
   digital_url = digital_url(:host => Spree::Config.get(:site_url), :secret => link.secret)
 %>
 <%= link_to digital_url, digital_url%>
 </p>
+<% end %>
 <% end %>
 <% end %>
 <% end %>
