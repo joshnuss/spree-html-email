@@ -7,8 +7,8 @@ Gem::Specification.new do |s|
   s.description = "Provides html email templates for all Spree's outgoing emails. Uses ERB."
   s.required_ruby_version = '>= 1.8.7'
 
-  s.author            = 'Michael Bianco'
-  s.email             = 'info@cliffsidedev.com'
+  s.author            = 'Joshua Nussbaum'
+  s.email             = 'joshnuss@gmail.com'
   # s.homepage          = 'http://www.rubyonrails.org'
 
   s.files         = `git ls-files`.split("\n")
