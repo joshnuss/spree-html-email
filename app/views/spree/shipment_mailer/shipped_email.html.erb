@@ -8,13 +8,8 @@
   To view the complete details of your order use the following link:
   <%= link_to(order_url(@shipment.order, :host => Spree::Config[:site_url]), order_url(@shipment.order, :host => Spree::Config[:site_url])) %>
 </p>
-<h1><span>Shipment Summary</span></h1>
 <%= render :partial => 'spree/shared/email/shipment_details', :locals => {:shipment => @shipment} %>
-<% if @shipment.tracking.present? %>
-  <p class="tracking">
-    Tracking Information:
-    <%= @shipment.tracking %>
-  </p>
+<%= render :partial => 'spree/shared/email/shipment_tracking', :locals => { :shipment => @shipment} %>
 <p class="thank-you">
   Thank you for your business.
 </p>

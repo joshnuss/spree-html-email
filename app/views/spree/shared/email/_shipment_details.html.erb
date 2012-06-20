@@ -1,10 +1,11 @@
-<div class="address" id="shipping">
+<div id="shipping">
   <h2><%= t(:shipping_address) %></h2>
   <%= render :partial => 'spree/shared/email/address', :locals => {:address => shipment.address} %>
 </div>
 
-<table data-hook="shipment_details">
-  <tbody id="line-items" "data-hook" => "">
+<h2><%= t(:shipment_details) %></h2>
+<table id="shipment-details" data-hook="shipment_details">
+  <tbody id="line-items" data-hook>
     <tr data-hook="shipment_details_line_items_headers">
       <th><%= t(:item_description) %></th>
       <th class="qty number"><%= t(:qty) %></th>
@@ -14,7 +15,7 @@
       <tr data-hook="shipment_details_line_item_row" class="<%=cycle('', 'alt')%>">
         <td class="name">
           <%= item.variant.product.name %>
-          <%= "(" + variant_options(item.variant) + ")" unless item.variant .option_values.empty? %>
+          <%= "(" + variant_options(item.variant) + ")" unless item.variant.option_values.empty? %>
         </td>
         <td class="qty number"><%= item.quantity %></td>
         <td><%= t('shipped') %></td>
