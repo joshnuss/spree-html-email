@@ -10,6 +10,7 @@
 </p>
 <%= render :partial => 'spree/shared/email/shipment_details', :locals => {:shipment => @shipment} %>
 <%= render :partial => 'spree/shared/email/shipment_tracking', :locals => { :shipment => @shipment} %>
+<%= render :partial => 'spree/shared/email/digitals', :locals => { :order => @shipment.order } %>
 <p class="thank-you">
   Thank you for your business.
 </p>

@@ -12,6 +12,7 @@
   Order Summary
 </h1>
 <%= render :partial => 'spree/shared/email/order_details', :locals => {:order => @order} %>
+<%= render :partial => 'spree/shared/email/digitals', :locals => { :order => @order } %>
 <p class="thank-you">
   Thank you for your business.
 </p>
