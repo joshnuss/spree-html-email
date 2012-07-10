@@ -1,5 +1,9 @@
 require 'spec_helper'
 
+# TODO should be a bit more comprehensive here:
+#   1) test spree_digital integration
+#   2) test proper address formatting
+
 describe OrderMailer do
   let(:order) { Factory(:order, 
                         :completed_at => Time.now, 

@@ -13,19 +13,5 @@
 </h1>
 <%= render :partial => 'spree/shared/email/order_details', :locals => {:order => @order} %>
 <p class="thank-you">
-  Thank you for your business.%p.customer  = t(:dear_customer, :default => "Dear %{name},", :name => @order.bill_address ? @order.bill_address.full_name : 'Customer' )
-</p>
-<p class="overview">
-  Your order has been <b>CANCELED</b>.  Please retain this cancellation information for your records.
-</p>
-<p class="link">
-  To view the complete details of your order use the following link:
-  <%= link_to(order_url(@order, :host => Spree::Config[:site_url]), order_url(@order, :host => Spree::Config[:site_url])) %>
-</p>
-<h1>
-  Order Summary [CANCELED]
-</h1>
-<%= render :partial => 'spree/shared/email/order_details', :locals => {:order => @order} %>
-<p class="thank-you">
-  Thank you for your business.
+  Thank you for your business
 </p>
