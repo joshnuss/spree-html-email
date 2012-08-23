@@ -11,7 +11,7 @@
       <th class="qty number"><%= t(:qty) %></th>
       <th><%= t(:status) %></th>
     </tr>
-    <% shipment.line_items.each do |item| %>
+    <% shipment.manifest.each do |item| %>
       <tr data-hook="shipment_details_line_item_row" class="<%=cycle('', 'alt')%>">
         <td class="name">
           <%= item.variant.product.name %>
