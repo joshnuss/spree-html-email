@@ -3,6 +3,8 @@ HTML Email Notifications for Spree Commerce
 
 Adds HTML email support for transactional emails associated with Spree Commerce. This fork of the master repository uses ERB for templates.
 
+There is no installation process for this gem, just include the gem in your application's Gemfile and run `bundle update`.
+
 Supports the [spree_digital](https://github.com/funkensturm/spree_digital) extension: 
 adds download links to the end of the order confirmation email when the extension is being used. Download links are included in both the confirmation and shipping email to elminate confusion on the customer side.
 
