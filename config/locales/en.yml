@@ -3,6 +3,3 @@ en:
   tracking_information: Tracking Information
   shipment_details: Shipment Details
   digital_item_email_title: "<b>%{name}, %{type}:</b><br/>"
-  time:
-    formats:
-      short: "%B %d, %Y"
