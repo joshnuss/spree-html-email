@@ -14,6 +14,13 @@ Uses the [premailer-rails3](https://github.com/fphilipe/premailer-rails3) gem to
 Some of the HTML structure uses classes in the `core.less` stylesheet from the HTML email template
 found here: https://github.com/iloveitaly/email-newsletter-toolkit. Take a look at the [HTML Email Boilerplate](http://htmlemailboilerplate.com) project and the [premailer homepage](https://github.com/alexdunae/premailer) for more information on developing HTML emails.
 
+Installation & Usage
+===============
+Add Spree HTML email to your gemfile, and run bundle install:
+
+`gem "spree_html_email", github: 'joshnuss/spree-html-email'`
+
+
 Authors
 ===============
 * Joshua Nussbaum, @joshnuss
