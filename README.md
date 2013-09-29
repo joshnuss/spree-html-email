@@ -7,7 +7,7 @@ Supports the [spree_digital](https://github.com/funkensturm/spree_digital) exten
 adds download links to the end of the order confirmation email when the extension is being used.
 
 Provides an html layout for all emails and html templates for all of Spree's built in emails.
-Uses the premailer-rails3 gem to inline CSS which works better for a lot of mail client (i.e. gmail).
+Uses the premailer-rails gem to inline CSS which works better for a lot of mail client (i.e. gmail).
 
 Some of the HTML structure uses classes in the `core.less` stylesheet from the HTML email template
 found here: https://github.com/iloveitaly/email-newsletter-toolkit
