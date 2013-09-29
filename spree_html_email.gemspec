@@ -16,8 +16,8 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency 'spree_core', '~> 1.0.0'
-  s.add_dependency 'premailer-rails3', '~> 1.1.0'
+  s.add_dependency 'spree_core'
+  # s.add_dependency 'premailer-rails'
 
   s.add_development_dependency 'rspec-rails'
 end

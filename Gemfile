@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'sqlite3'
+gem 'premailer-rails'
 
 group :development do
   gem 'guard'
