@@ -1,7 +1,5 @@
 source 'http://rubygems.org'
 
-gem 'sqlite3'
-
 group :development do
   gem 'guard'
   gem 'guard-rspec'
@@ -12,25 +10,16 @@ group :development do
 end
 
 group :test do
-  gem 'rspec-rails', '= 2.6.1'
-end
-
-group :cucumber do
-  gem 'cucumber-rails', '1.0.0'
-  gem 'database_cleaner', '= 0.6.7'
-  gem 'nokogiri'
-  gem 'capybara', '1.0.1'
-end
-
-group :cucumber, :test do
   gem 'faker'
   gem 'factory_girl'
 end
 
-if RUBY_VERSION < "1.9"
-  gem "ruby-debug"
-else
-  gem "ruby-debug19"
+group :development, :test do
+  gem 'pry'
 end
+
+gem 'sqlite3'
+gem 'spree',             github: 'spree/spree',             branch: '2-1-stable'
+gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: '2-1-stable'
 
 gemspec

@@ -1,19 +1,19 @@
 require 'spec_helper'
 
-describe OrderMailer do
-  let(:order) { Factory(:order, 
-                        :completed_at => Time.now, 
-                        :bill_address => Factory(:address), 
-                        :ship_address => Factory(:address)) }
+describe Spree::OrderMailer do
+  let(:order) { FactoryGirl.create(:order,
+                        :completed_at => Time.now,
+                        :bill_address => FactoryGirl.create(:address),
+                        :ship_address => FactoryGirl.create(:address)) }
 
   context "confirmation email" do
-    let(:email) { OrderMailer.confirm_email(order) }
+    let(:email) { Spree::OrderMailer.confirm_email(order) }
 
     specify { email.content_type.should match("text/html") }
   end
 
   context "cancelation email" do
-    let(:email) { OrderMailer.cancel_email(order) }
+    let(:email) { Spree::OrderMailer.cancel_email(order) }
 
     specify { email.content_type.should match("text/html") }
   end
