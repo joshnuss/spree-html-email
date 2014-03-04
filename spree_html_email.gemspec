@@ -16,9 +16,23 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
+
+
   s.add_dependency 'spree_core', '~> 2.1'
+  s.add_dependency 'spree_api'
+  s.add_dependency 'spree_backend'
   s.add_dependency 'premailer-rails', '~> 1'
 
-  s.add_development_dependency 'rspec-rails'
+  s.add_development_dependency 'factory_girl_rails', '~> 4.2.0'
+  s.add_development_dependency 'rspec-rails', '~> 2.13'
+  # s.add_development_dependency 'capybara', '2.1.0'
+  # s.add_development_dependency 'launchy'
+  s.add_development_dependency 'sass-rails', '~> 4.0.0'
+  s.add_development_dependency 'coffee-rails', '~> 4.0.0'
+  s.add_development_dependency 'email_spec', '~> 1.5.0'
+  s.add_development_dependency 'ffaker'
+  s.add_development_dependency 'shoulda-matchers', '~> 1.5'
+  # s.add_development_dependency 'database_cleaner', '~> 1.2.0'
+  # s.add_development_dependency 'poltergeist', '~> 1.5.0'
 end
 
