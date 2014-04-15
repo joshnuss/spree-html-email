@@ -1,20 +1,31 @@
 <p class="customer">
-  <%= t(:dear_customer, :default => "Dear %{name},", :name => @shipment.order.bill_address ? @shipment.order.bill_address.full_name : 'Customer' ) %>
+  <%= Spree.t('shipment_mailer.shipped_email.dear_customer') %>
 </p>
 <p class="overview">
-  Your shipment has been shipped
+  Your shipment has been shipped!
 </p>
 <p class="link">
+  <%= Spree.t('shipment_mailer.shipped_email.instructions') %>
   To view the complete details of your order use the following link:
   <%= link_to(order_url(@shipment.order, :host => Spree::Config[:site_url]), order_url(@shipment.order, :host => Spree::Config[:site_url])) %>
 </p>
-<h1><span>Shipment Summary</span></h1>
-<%= render :partial => 'spree/shared/email/shipment_details', :locals => {:shipment => @shipment} %>
+<p>&nbsp;</p>
+
 <% if @shipment.tracking.present? %>
+  <h2><span>Tracking Information</span></h2>
   <p class="tracking">
-    Tracking Information:
-    <%= @shipment.tracking %>
+    Tracking/shipment number:
+    <%= link_to @shipment.tracking, "http://google.com/search?&q=#{@shipment.tracking}" %>
+    <%= Spree.t('shipment_mailer.shipped_email.track_link', :url => @shipment.tracking_url) if @shipment.tracking_url %>
   </p>
+<% end %>
+<p>&nbsp;</p>
+
+<h1><span>Order Summary</span></h1>
+<%= render :partial => 'spree/shared/email/order_details', :locals => {:order => @shipment.order} %>
+<p>&nbsp;</p>
+
 <p class="thank-you">
-  Thank you for your business.
+  <%= Spree.t('shipment_mailer.shipped_email.thanks') %>
 </p>
+<p>&nbsp;</p>

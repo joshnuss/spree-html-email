@@ -14,7 +14,7 @@
       <tr data-hook="shipment_details_line_item_row" class="<%=cycle('', 'alt')%>">
         <td class="name">
           <%= item.variant.product.name %>
-          <%= "(" + variant_options(item.variant) + ")" unless item.variant .option_values.empty? %>
+          <%= "(" + variant_options(item.variant) + ")" unless item.variant.option_values.empty? %>
         </td>
         <td class="qty number"><%= item.quantity %></td>
         <td><%= t('shipped') %></td>
