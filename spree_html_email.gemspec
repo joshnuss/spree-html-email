@@ -8,9 +8,9 @@ Gem::Specification.new do |s|
   s.description = "Provides html email templates for all Spree's outgoing emails. Uses ERB."
   s.required_ruby_version = '>= 1.8.7'
 
-  s.author            = 'Joshua Nussbaum'
-  s.email             = 'joshnuss@gmail.com'
-  # s.homepage          = 'http://www.rubyonrails.org'
+  s.authors           = ['Joshua Nussbaum', 'Michael Bianco']
+  s.email             = ['joshnuss@gmail.com', 'mike@cliffsidemedia.com']
+  s.homepage          = 'https://github.com/joshnuss/spree-html-email'
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
@@ -23,5 +23,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rspec-rails',  '~> 2.7'
   s.add_development_dependency 'sqlite3'
   s.add_development_dependency 'factory_girl', '~> 2.6'
+  s.add_development_dependency 'ffaker'
 end
 

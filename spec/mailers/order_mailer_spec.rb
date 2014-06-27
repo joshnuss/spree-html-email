@@ -4,20 +4,20 @@ require 'spec_helper'
 #   1) test spree_digital integration
 #   2) test proper address formatting
 
-describe OrderMailer do
+describe Spree::OrderMailer do
   let(:order) { Factory(:order, 
                         :completed_at => Time.now, 
                         :bill_address => Factory(:address), 
                         :ship_address => Factory(:address)) }
 
   context "confirmation email" do
-    let(:email) { OrderMailer.confirm_email(order) }
+    let(:email) { Spree::OrderMailer.confirm_email(order) }
 
     specify { email.content_type.should match("text/html") }
   end
 
   context "cancelation email" do
-    let(:email) { OrderMailer.cancel_email(order) }
+    let(:email) { Spree::OrderMailer.cancel_email(order) }
 
     specify { email.content_type.should match("text/html") }
   end

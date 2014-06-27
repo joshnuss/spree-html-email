@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe ShipmentMailer do
+describe Spree::ShipmentMailer do
   let(:shipment) { Factory(:shipment) }
 
   context "shipped email" do
-    let(:email) { ShipmentMailer.shipped_email(shipment) }
+    let(:email) { Spree::ShipmentMailer.shipped_email(shipment) }
 
     specify { email.content_type.should match("text/html") }
   end
