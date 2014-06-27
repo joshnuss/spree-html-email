@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Spree::UserMailer do
-  let(:user) { mock(:user) }
+  let(:user) { FactoryGirl.create(:user) }
 
   context "reset password instructions email" do
     let(:email) { Spree::UserMailer.reset_password_instructions(user) }

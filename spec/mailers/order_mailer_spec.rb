@@ -5,10 +5,10 @@ require 'spec_helper'
 #   2) test proper address formatting
 
 describe Spree::OrderMailer do
-  let(:order) { Factory(:order, 
+  let(:order) { FactoryGirl.create(:order, 
                         :completed_at => Time.now, 
-                        :bill_address => Factory(:address), 
-                        :ship_address => Factory(:address)) }
+                        :bill_address => FactoryGirl.create(:address), 
+                        :ship_address => FactoryGirl.create(:address)) }
 
   context "confirmation email" do
     let(:email) { Spree::OrderMailer.confirm_email(order) }
