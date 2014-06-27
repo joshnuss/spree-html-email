@@ -1,6 +1,6 @@
 <% if shipment.tracking.present? %>
 <p class="tracking">
 	<h2><span><%= t(:tracking_information) %></span></h2>
-	<%= shipment.tracking %>
+	<%= link_to shipment.tracking, "http://google.com/search?&q=#{shipment.tracking}" %>
 </p>
 <% end %>
